@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- bootstrap cdn  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body class="bg-dark text-white py-5">
+    <div class="container bg-dark">
+      <div class="row">
+        <a href="/" class="text-decoration-none fs-5">Home</a>
+        <h3 class="my-5">All User</h3>
+      </div>
+      <div class="row w-100">
+        <% users.forEach(function(user){ %>
+
+        <div class="col-md-3 card p-2 mx-2 text-white bg-primary mt-4">
+          <div class="image bg-success rounded mb-3" style="height: 200px">
+            <img src="<%= user.image %>" class="image" alt="" />
+          </div>
+          <p class="m-0 fs-3 fs-bold"><%= user.name %></p>
+          <p class="m-0"><%= user.email %></p>
+          <div class="button mt-2">
+            <a
+              href="/edit/<%= user._id %>"
+              class="text-white px-3 rounded text-decoration-none py-1 bg-success"
+              >Edit</a
+            >
+            <a
+              href="/delete/<%= user._id%>"
+              class="text-white px-3 rounded text-decoration-none py-1 ms-3 bg-danger"
+              >Delete</a
+            >
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
