@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
+// main file
 const userModel = require("./models/user");
 
 app.use(express.json());
